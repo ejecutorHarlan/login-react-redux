@@ -78,8 +78,8 @@ export const handleLogin = (email, password) => {
       type: "login_pending"
     })
 
-    fetch ("http://localhost:4000/login", {
-      baseURL: "http://localhost:4000",
+    return fetch ("https://trabajo-mcga-server-juligomez.herokuapp.com/login", {
+      baseURL: "trabajo-mcga-server-juligomez.herokuapp.com",
       timeout: 25000,
       method: "POST",
       headers: {
@@ -92,20 +92,20 @@ export const handleLogin = (email, password) => {
     })
     .then(a => a.json())
     .then((data) =>{
-      if(!data.succes){
-        dispatch({
+      if(!data.success){
+        return dispatch({
           type:"loggine_error",
           payload:data,
         })
       }
-      dispatch({
-        type:"loggin_success",
+      return dispatch({
+        type:"login_success",
         payload: data,
       })
       console.log("termino la promesa");
     })
     .catch((error) =>{
-      dispatch({
+      return dispatch({
         type:"loggine_error",
         payload:error,
       })
