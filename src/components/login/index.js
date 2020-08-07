@@ -36,7 +36,7 @@ const Login = (props) => {
             onChange={props.onChangePassword}
             value={props.password}
             required
-           // minLength="7"
+            minLength="7"
           />
           <button className={styles.button} type="submit">
             Login
