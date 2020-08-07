@@ -94,19 +94,21 @@ export const handleLogin = (email, password) => {
     .then((data) =>{
       if(!data.success){
         return dispatch({
-          type:"loggine_error",
+          type:"loggin_error",
           payload:data,
         })
       }
-      return dispatch({
+        return dispatch({
         type:"login_success",
         payload: data,
+        
       })
-      console.log("termino la promesa");
+      
+     // console.log("termino la promesa");
     })
     .catch((error) =>{
       return dispatch({
-        type:"loggine_error",
+        type:"loggin_error",
         payload:error,
       })
     })
